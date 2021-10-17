@@ -14,11 +14,7 @@ import java.util.List;
 public class BrowserUtil {
 
 
-    /**
-     * Switches to new window by the exact title. Returns to original window if target title not found
-     *
-     * @param targetTitle
-     */
+   //switch to the new window by Title
     public static void switchToWindow(String targetTitle) {
         String origin = Driver.getDriver().getWindowHandle();
         for (String handle : Driver.getDriver().getWindowHandles()) {
@@ -60,36 +56,21 @@ public class BrowserUtil {
     }
 
 
-    /**
-     * Waits for element matching the locator to be visible on the page
-     *
-     * @param locator
-     * @param timeout
-     * @return
-     */
+    //Waits for element matching the locator to be visible on the page
     public static WebElement waitForVisibility(By locator, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
 
-    /**
-     * Scrolls down to an element using JavaScript
-     *
-     * @param element
-     */
+    //Scrolls down to an element using JavaScript
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
 
 
-    /**
-     * Selects with visibleText
-     *
-     * @param elementDropdown
-     * @param visibleText
-     */
+    //Select by visible text
     public static void selectByVisibleText(WebElement elementDropdown, String visibleText) {
         Select dropdown = new Select(elementDropdown);
         dropdown.selectByVisibleText(visibleText);
@@ -113,12 +94,8 @@ public class BrowserUtil {
         return true;
     }
 
-    /**
-     * Check Element is not Located
-     *
-     * @param element
-     * @return
-     */
+
+    //check element is not located
     public static boolean waitForElementIsNotLocated(WebElement element) {
 
 
@@ -136,16 +113,6 @@ public class BrowserUtil {
         return false;
     }
 
-    /**
-     * returns random number between a to b
-     *
-     * @param a
-     * @param b
-     * @return
-     */
-    public static int randomNumber(int a, int b) {
-        return new Faker().number().numberBetween(a, b);
-    }
 
     public static boolean getIsCheck(List<WebElement> allCheckboxes,WebElement nextButton){
 
@@ -174,4 +141,6 @@ public class BrowserUtil {
 
         return flag;
     }
+
+
 }
