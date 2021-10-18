@@ -1,3 +1,4 @@
+@ui
 Feature: As a user, I should be able to access the Files module
 #(Pre-condition: there should be at least 1 folder is created on the filers page)
   Background:
