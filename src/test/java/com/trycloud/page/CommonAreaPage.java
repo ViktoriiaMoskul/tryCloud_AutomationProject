@@ -1,6 +1,8 @@
 package com.trycloud.page;
 
+import com.github.javafaker.Faker;
 import com.trycloud.utilities.Driver;
+import org.apache.commons.lang.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
