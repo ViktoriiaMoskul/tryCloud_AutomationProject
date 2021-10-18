@@ -5,6 +5,9 @@ import com.trycloud.page.FilesPage;
 import static com.trycloud.utilities.Driver.*;
 
 import static com.trycloud.utilities.BrowserUtil.*;
+
+import com.trycloud.page.LoginPage;
+import static com.trycloud.utilities.ConfigReader.*;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,9 +20,12 @@ public class FilesStepDefs_US6 {
     //OBJECTS
     CommonAreaPage commonArea = new CommonAreaPage();
     FilesPage filesPage = new FilesPage();
+    LoginPage login = new LoginPage();
+
 
     @When("user clicks on the Files module on top")
     public void userClicksFilesModule() {
+        login.login(read("username"),read("password"));
         commonArea.waitUntilLoaderScreenDisappear();
         commonArea.modules("Files").click();
     }
