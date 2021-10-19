@@ -25,7 +25,6 @@ public class FilesStepDefs_US6 {
     CommonAreaPage commonArea = new CommonAreaPage();
     FilesPage filesPage = new FilesPage();
     LoginPage login = new LoginPage();
-    Actions action = new Actions(getDriver());
     String folderName = filesPage.generateRandomString(10);
 
 
@@ -78,9 +77,10 @@ public class FilesStepDefs_US6 {
     public void verifyTheFileIsDisplayed() {
         boolean fileUploaded = false;
         for (WebElement each : filesPage.allCheckboxes) {
-            System.out.println("testingYULIIA" + each.getText());
-            if (each.getText().equals("logo.jpeg")) {
+            System.out.println(each.getText());
+            if (each.getText().trim().equals("logo")) {
                 fileUploaded = true;
+                System.out.println("each = " + each);
                 break;
             }
         }
