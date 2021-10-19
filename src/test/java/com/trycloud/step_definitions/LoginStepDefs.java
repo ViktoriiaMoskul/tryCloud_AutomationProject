@@ -1,7 +1,8 @@
 package com.trycloud.step_definitions;
 
+import com.trycloud.page.CommonAreaPage;
 import com.trycloud.page.LoginPage;
-import com.trycloud.utilities.ConfigReader;
+import static com.trycloud.utilities.ConfigReader.*;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,6 +16,7 @@ import java.awt.dnd.DragGestureEvent;
 public class LoginStepDefs {
 
     LoginPage loginPage = new LoginPage();
+    CommonAreaPage commonArea = new CommonAreaPage();
 
     @Given("user is on the login page")
     public void userIsOnTheLoginPage() {
@@ -23,7 +25,8 @@ public class LoginStepDefs {
 
     @When("user enter valid {string} and {string} and user click login button")
     public void userEnterValidAnd(String username, String password) {
-        loginPage.login(username, password);
+        loginPage.login(read(username), read(password));
+        commonArea.waitUntilLoaderScreenDisappear();
     }
 
 
@@ -35,7 +38,7 @@ public class LoginStepDefs {
 
     @When("user enters invalid credentials and user click login button")
     public void userEnterInvalidCredentials() {
-        loginPage.login(ConfigReader.read("invalidUser"), ConfigReader.read("invalidPass"));
+        loginPage.login(read("invalidUser"), read("invalidPass"));
     }
 
     @Then("“Wrong username or password.” message should be displayed")

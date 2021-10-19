@@ -3,7 +3,8 @@ Feature: As a user, I should be able to access the Files module
 #(Pre-condition: there should be at least 1 folder is created on the filers page)
   Background:
     Given user is on the login page
-    When user clicks on the Files module on top
+    When user enter valid "<username>" and "<password>" and user click login button
+    And user clicks on the Files module on top
     And user clicks the + icon
 
   Scenario: verify users can create a folder

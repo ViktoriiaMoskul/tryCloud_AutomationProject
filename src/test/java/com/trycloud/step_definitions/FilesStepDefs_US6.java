@@ -2,36 +2,24 @@ package com.trycloud.step_definitions;
 
 import com.trycloud.page.CommonAreaPage;
 import com.trycloud.page.FilesPage;
-
-import static com.trycloud.utilities.Driver.*;
 import static com.trycloud.utilities.BrowserUtil.*;
-
-import com.trycloud.page.LoginPage;
-
-import static com.trycloud.utilities.ConfigReader.*;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+
 
 public class FilesStepDefs_US6 {
     //OBJECTS and VARIABLES
     CommonAreaPage commonArea = new CommonAreaPage();
     FilesPage filesPage = new FilesPage();
-    LoginPage login = new LoginPage();
     String folderName = filesPage.generateRandomString(10);
 
 
     @When("user clicks on the Files module on top")
     public void userClicksFilesModule() {
-        login.login(read("username"), read("password"));
-        commonArea.waitUntilLoaderScreenDisappear();
         commonArea.modules("Files").click();
     }
 
@@ -60,10 +48,6 @@ public class FilesStepDefs_US6 {
 
     @And("user select Upload File from dropdown")
     public void selectUploadFile() {
-        //filesPage.plusIconOptions("Upload file").click();
-        //JavascriptExecutor executor = (JavascriptExecutor)getDriver();
-        //String js = "arguments[0].style.height='auto'; arguments[0].style.visibility='visible';";
-        //((JavascriptExecutor) getDriver()).executeScript(js, inputBox);
         filesPage.uploadFileHiddenInput.sendKeys("/Users/YuliiaNazarova/Desktop/logo.jpeg");
 
     }
@@ -88,3 +72,5 @@ public class FilesStepDefs_US6 {
     }
 
 }
+
+
