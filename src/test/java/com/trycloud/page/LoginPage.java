@@ -24,7 +24,7 @@ public class LoginPage {
     @FindBy(xpath = "//fieldset/p[3]")
     public WebElement errorMsg;
 
-    public void login(String username, String password){
+    public void login(String username,String password){
         usernameBox.sendKeys(username);
         passwordBox.sendKeys(password);
         loginBtn.click();
