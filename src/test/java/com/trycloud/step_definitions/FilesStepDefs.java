@@ -4,6 +4,7 @@ import com.trycloud.page.CommonAreaPage;
 import com.trycloud.page.FilesPage;
 import static com.trycloud.utilities.BrowserUtil.*;
 
+
 import com.trycloud.utilities.BrowserUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -96,6 +97,7 @@ public class FilesStepDefs {
         BrowserUtil.waitFor(3);
         Assert.assertTrue( filesPage.verifyFileChosen(chosenFile));
     }
+
 
 }
 
