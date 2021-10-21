@@ -3,8 +3,6 @@ package com.trycloud.step_definitions;
 import com.trycloud.page.CommonAreaPage;
 import com.trycloud.page.LoginPage;
 import static com.trycloud.utilities.ConfigReader.*;
-
-import com.trycloud.utilities.BrowserUtil;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,9 +25,8 @@ public class LoginStepDefs {
 
     @When("user enter valid {string} and {string} and user click login button")
     public void userEnterValidAnd(String username, String password) {
-
         loginPage.login(username,password);
-        //commonArea.waitUntilLoaderScreenDisappear();
+        commonArea.waitUntilLoaderScreenDisappear();
     }
 
 
