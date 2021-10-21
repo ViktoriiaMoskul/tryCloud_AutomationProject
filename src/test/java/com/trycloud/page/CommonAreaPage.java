@@ -52,8 +52,5 @@ public class CommonAreaPage {
 
     }
 
-    // 'Dashboard' 'Files' 'Photos' 'Activity' 'Talk' 'Mail' 'Contacts' 'Circles' 'Calendar' 'Deck'
-    public WebElement modules(String moduleName) {
-        return Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//li/a[@aria-label='" + moduleName + "']"));
-    }
 }
+
