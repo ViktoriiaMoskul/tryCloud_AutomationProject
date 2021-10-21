@@ -14,7 +14,6 @@ public class Hooks {
 
 @Before("@ui")
     public void setupDriver(){
-        Driver.getDriver().get(ConfigReader.read("url"));
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
         Driver.getDriver().manage().window().maximize();
     }

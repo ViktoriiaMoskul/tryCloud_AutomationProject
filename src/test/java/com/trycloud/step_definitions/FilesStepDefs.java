@@ -11,7 +11,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 
-public class FilesStepDefs_US6 {
+public class FilesStepDefs {
     //OBJECTS and VARIABLES
     CommonAreaPage commonArea = new CommonAreaPage();
     FilesPage filesPage = new FilesPage();

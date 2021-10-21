@@ -3,6 +3,9 @@ package com.trycloud.step_definitions;
 import com.trycloud.page.CommonAreaPage;
 import com.trycloud.page.LoginPage;
 import static com.trycloud.utilities.ConfigReader.*;
+
+import com.trycloud.utilities.BrowserUtil;
+import com.trycloud.utilities.ConfigReader;
 import com.trycloud.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,18 +23,21 @@ public class LoginStepDefs {
 
     @Given("user is on the login page")
     public void userIsOnTheLoginPage() {
-
+        BrowserUtil.waitFor(3);
+        Driver.getDriver().get(ConfigReader.read("url"));
+        Assert.assertEquals("Trycloud QA", Driver.getDriver().getTitle());
     }
 
     @When("user enter valid {string} and {string} and user click login button")
     public void userEnterValidAnd(String username, String password) {
-        loginPage.login(read(username), read(password));
+        loginPage.login(username,password);
         commonArea.waitUntilLoaderScreenDisappear();
     }
 
 
     @Then("Verify user launched to the dashboard")
     public void verifyUserLaunchedToTheDashboard() {
+        BrowserUtil.waitFor(3);
         String expectedTitle = "Dashboard - Trycloud QA";
         Assert.assertEquals(expectedTitle, Driver.getDriver().getTitle());
     }
