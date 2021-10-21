@@ -3,6 +3,9 @@ package com.trycloud.step_definitions;
 import com.trycloud.page.CommonAreaPage;
 import com.trycloud.page.FilesPage;
 import static com.trycloud.utilities.BrowserUtil.*;
+
+
+import com.trycloud.utilities.BrowserUtil;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -70,6 +73,31 @@ public class FilesStepDefs {
         }
         Assert.assertTrue(fileUploaded);
     }
+
+
+    @And("user clicks on Actions icon of {string} file")
+    public void userClicksOnActionsIconOfFile(String fileName) {
+        filesPage.chooseFile(fileName);
+    }
+
+    @When("user chooses {string}")
+    public void user_chooses(String action) {
+       filesPage.chooseAction(action);
+    }
+
+    @When("user clicks on favorites sub-module")
+    public void user_clicks_on_favorites_sub_module() {
+        BrowserUtil.waitFor(3);
+        filesPage.favoritesModule.click();
+    }
+
+
+    @Then("{string} file is listed on the table of favorites")
+    public void fileIsListedOnTheTableOfFavorites(String chosenFile) {
+        BrowserUtil.waitFor(3);
+        Assert.assertTrue( filesPage.verifyFileChosen(chosenFile));
+    }
+
 
 }
 

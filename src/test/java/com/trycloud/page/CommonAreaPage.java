@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+
 public class CommonAreaPage {
     // Constructor
     public CommonAreaPage(){
@@ -27,6 +28,7 @@ public class CommonAreaPage {
     // Activate list of all modules
     @FindBy(xpath="//*[@id='appmenu']/li[@data-id]")
     public List<WebElement> hover;
+
 
     @FindBy(xpath = "//div[@class='header-right']//a/span[@aria-label='Magnify icon']")
     public WebElement magnifyIcon;
@@ -48,5 +50,10 @@ public class CommonAreaPage {
             e.printStackTrace();
         }
 
+    }
+
+    // 'Dashboard' 'Files' 'Photos' 'Activity' 'Talk' 'Mail' 'Contacts' 'Circles' 'Calendar' 'Deck'
+    public WebElement modules(String moduleName) {
+        return Driver.getDriver().findElement(By.xpath("//ul[@id='appmenu']//li/a[@aria-label='" + moduleName + "']"));
     }
 }
